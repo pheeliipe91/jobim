@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Write",
+      "Edit",
+      "Bash(*)",
+      "WebSearch",
+      "WebFetch",
+      "Glob",
+      "Grep",
+      "Task",
+      "TodoWrite",
+      "LSP"
+    ],
+    "deny": []
+  },
+  "model": "opus",
+  "autonomy": {
+    "trustLevel": "high",
+    "autoApprove": true
+  }
+}
