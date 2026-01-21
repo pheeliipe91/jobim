@@ -303,8 +303,37 @@ Consulte estes sites para inspiração de padrões que funcionam:
 64. outseta - SaaS membership
 65. comet-student - Education SaaS
 
-### Mais Referências (buscar em)
-66-100. onepagelove.com/inspiration para:
+### Biblioteca Completa de Referências
+
+**IMPORTANTE:** Consulte a biblioteca local antes de buscar externamente:
+
+```
+design-library/
+├── referencias-curadas.md      # 152 sites organizados por categoria
+├── design-system-reference.md  # Padrões visuais extraídos
+└── screenshots/
+    └── INSTRUCOES.md           # Como capturar screenshots
+```
+
+**Como usar:**
+1. Leia `design-library/referencias-curadas.md` para URLs por categoria
+2. Consulte `design-library/design-system-reference.md` para padrões CSS
+3. Use screenshots existentes em `design-library/screenshots/` quando disponíveis
+
+**Categorias disponíveis (152 sites):**
+- Landing Pages (32 sites)
+- SaaS (24 sites)
+- Portfolios (32 sites)
+- Startups (16 sites)
+- Eventos (11 sites)
+- Restaurantes (8 sites)
+- Música (10 sites)
+- Fotografia (8 sites)
+- Tipografia & Assets (4 sites)
+- Outros (7 sites)
+
+### Busca Externa (quando necessário)
+onepagelove.com/inspiration para:
 - /illustration (ilustrações únicas)
 - /typography (tipografia experimental)
 - /brutalist (design brutalista)

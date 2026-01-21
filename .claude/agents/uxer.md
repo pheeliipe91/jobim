@@ -376,6 +376,31 @@ Para cada step, avaliar:
 
 ---
 
+## Biblioteca de Referências de Design
+
+**IMPORTANTE:** Consulte a biblioteca local para padrões comprovados:
+
+```
+design-library/
+├── referencias-curadas.md      # 152 sites organizados por categoria
+├── design-system-reference.md  # Padrões visuais e UX
+└── screenshots/
+    └── INSTRUCOES.md           # Como capturar screenshots
+```
+
+**Como usar para UX:**
+1. Analise fluxos de sites similares em `referencias-curadas.md`
+2. Extraia patterns de `design-system-reference.md` (seção de componentes)
+3. Compare com screenshots quando disponíveis
+
+**Categorias mais úteis para UX:**
+- **SaaS (24 sites):** Fluxos de onboarding, dashboards, pricing
+- **Landing Pages (32 sites):** CTAs, hierarquia, conversão
+- **Portfolios (32 sites):** Navegação criativa, scrolling patterns
+- **E-commerce:** Checkout flows, product pages
+
+---
+
 ## Quando Escalar
 
 Consulte o Jobim quando:
