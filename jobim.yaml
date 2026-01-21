@@ -1,0 +1,182 @@
+# ╔══════════════════════════════════════════════════════════════════╗
+# ║                    JOBIM - Configuração                          ║
+# ║                 Orquestrador Multi-Agente                        ║
+# ╚══════════════════════════════════════════════════════════════════╝
+
+# ===========================================
+# Projeto
+# ===========================================
+project:
+  name: "Meu Projeto"
+  description: "Descrição do projeto"
+  version: "0.1.0"
+
+# ===========================================
+# Modelos
+# ===========================================
+models:
+  # Modelo para o orquestrador (Jobim)
+  # opus = máxima capacidade de raciocínio
+  # sonnet = bom equilíbrio (mais barato)
+  orchestrator: opus
+
+  # Modelo padrão para workers
+  workers: sonnet
+
+  # Override por agente (opcional)
+  agents:
+    scout: haiku      # Pesquisa rápida
+    builder: sonnet   # Desenvolvimento
+    tester: sonnet    # QA e testes
+    shipper: sonnet   # DevOps
+    launcher: sonnet  # Marketing
+
+# ===========================================
+# Pipeline
+# ===========================================
+pipeline:
+  # Fases do pipeline (em ordem)
+  phases:
+    - discovery
+    - prototype
+    - production
+    - ship
+    - launch
+
+  # Fases que requerem aprovação humana
+  # O Jobim pausará e pedirá confirmação antes de prosseguir
+  checkpoints:
+    - discovery    # Após pesquisa, antes de codar
+    - prototype    # Após MVP, antes de produção
+    - production   # Após código pronto, antes de deploy
+
+  # Configurações por fase
+  phase_config:
+    discovery:
+      agent: scout
+      timeout: 300          # 5 minutos
+      require_approval: true
+
+    prototype:
+      agent: builder
+      timeout: 600          # 10 minutos
+      require_approval: true
+
+    production:
+      agents:
+        - builder
+        - tester
+      parallel: true        # Builder e Tester em paralelo
+      timeout: 900          # 15 minutos
+      require_approval: true
+
+    ship:
+      agent: shipper
+      timeout: 600
+      require_approval: false
+
+    launch:
+      agent: launcher
+      timeout: 600
+      require_approval: false
+
+# ===========================================
+# Inteligência
+# ===========================================
+intelligence:
+  # Meta-cognição: Jobim reflete antes de agir
+  meta_cognition: true
+
+  # Self-healing: Recuperação automática de falhas
+  self_healing: true
+  recovery_strategies:
+    - simplify_prompt
+    - switch_model
+    - decompose_task
+    - retry_with_context
+
+  # Consensus: Para decisões críticas, consultar múltiplos agentes
+  consensus_for_critical: true
+  consensus_threshold: 0.7   # 70% de concordância
+
+  # Aprendizado: Lembrar padrões de sucesso/falha
+  adaptive_learning: true
+
+  # Explicabilidade: Documentar raciocínio
+  save_reasoning_traces: true
+
+# ===========================================
+# Output
+# ===========================================
+output:
+  # Nível de verbosidade
+  # quiet = apenas resultados
+  # normal = progresso + resultados
+  # verbose = tudo incluindo raciocínio
+  verbosity: normal
+
+  # Salvar traces de decisão
+  save_traces: true
+  trace_dir: .jobim/traces
+
+  # Salvar artefatos intermediários
+  save_artifacts: true
+  artifact_dir: .jobim/artifacts
+
+  # Formato de relatórios
+  report_format: markdown  # markdown, json, html
+
+# ===========================================
+# Limites
+# ===========================================
+limits:
+  # Máximo de tokens por agente
+  max_tokens_per_agent: 4000
+
+  # Máximo de retentativas em caso de falha
+  max_retries: 3
+
+  # Timeout padrão (segundos)
+  default_timeout: 300
+
+  # Máximo de agentes em paralelo
+  max_parallel_agents: 3
+
+# ===========================================
+# Integrações (opcional)
+# ===========================================
+integrations:
+  # GitHub
+  github:
+    enabled: true
+    auto_create_issues: false
+    auto_create_pr: false
+
+  # Notificações
+  notifications:
+    slack_webhook: ""      # URL do webhook
+    discord_webhook: ""    # URL do webhook
+
+  # Analytics
+  analytics:
+    enabled: false
+    provider: ""
+
+# ===========================================
+# Diretórios
+# ===========================================
+directories:
+  # Onde salvar código gerado
+  source: src
+
+  # Onde salvar testes
+  tests: tests
+
+  # Onde salvar documentação
+  docs: docs
+
+  # Onde salvar assets de marketing
+  marketing: marketing
+
+  # Dados internos do Jobim
+  jobim_data: .jobim
