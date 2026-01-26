@@ -1,81 +1,49 @@
 ---
 name: scout
-description: Agente de pesquisa e discovery (usa Haiku)
+description: Pesquisa rápida com Scout (Haiku)
 arguments:
   - name: task
-    description: "O que você quer pesquisar"
+    description: "O que pesquisar"
     required: true
 ---
 
-# 🔍 Scout - Agente de Pesquisa
+# Scout - Pesquisa Rápida
 
-**INSTRUÇÃO CRÍTICA:** Você DEVE usar a ferramenta Task para delegar esta pesquisa ao modelo Haiku.
+Delegue para Scout (Haiku) para pesquisa rápida.
 
-## Tarefa Solicitada
-$ARGUMENTS.task
+**USE TASK TOOL AGORA:**
 
-## Como Executar
-
-**USE A FERRAMENTA TASK AGORA** com estes parâmetros:
-
-```
+```javascript
 Task(
   subagent_type: "general-purpose",
   model: "haiku",
-  description: "Scout: pesquisa",
-  prompt: "
-    Você é o SCOUT, agente de pesquisa especializado.
+  description: "Scout: $ARGUMENTS.task",
+  prompt: `
+# SCOUT - Agente de Pesquisa
 
-    TAREFA: $ARGUMENTS.task
+## Tarefa
+$ARGUMENTS.task
 
-    INSTRUÇÕES:
-    1. Pesquise de forma abrangente usando WebSearch e WebFetch
-    2. Analise as informações encontradas
-    3. Sintetize em um relatório estruturado
+## Instruções
+1. Use WebSearch para pesquisar
+2. Analise os resultados
+3. Sintetize as descobertas
 
-    FORMATO DO OUTPUT:
-    ## 🔍 Scout Report
-
-    **Pesquisa:** [o que foi pesquisado]
-
-    ### Descobertas Principais
-    [Lista das principais descobertas]
-
-    ### Análise
-    [Sua análise das informações]
-
-    ### Fontes
-    - [fonte 1]
-    - [fonte 2]
-
-    ### Recomendações
-    [Ações sugeridas baseadas na pesquisa]
-
-    ### Confiança
-    [Alta/Média/Baixa] - [justificativa]
-  "
+## Output
+Retorne JSON:
+{
+  "agent": "scout",
+  "status": "success",
+  "report": {
+    "summary": "Resumo em 2-3 frases",
+    "findings": ["descoberta 1", "descoberta 2"],
+    "recommendations": ["recomendação 1"],
+    "sources": ["url1", "url2"]
+  },
+  "confidence": "high"
+}
+  `
 )
 ```
 
-## Após Receber o Resultado
-
-1. Apresente o relatório ao usuário
-2. Ofereça para aprofundar em algum ponto específico
-3. Se relevante, sugira próximos passos
-
-## Formato de Resposta
-
-```markdown
-## 🔍 Scout Report
-
-**Pesquisa:** $ARGUMENTS.task
-**Modelo:** Haiku
-
----
-
-[Resultado da pesquisa do agente]
-
----
-
-Quer que eu aprofunde em algum ponto específico?
-```
+Após receber o resultado, apresente de forma clara ao usuário.
